@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppModel {
-  final Icon icon;
+  final Image icon;
   final String title;
   final VoidCallback func;
 

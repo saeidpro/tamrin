@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppItems extends StatelessWidget {
-  //const AppItems({super.key});
-
-  final Icon iconItem;
+  final Image iconItem;
   final String iconTitle;
   final VoidCallback iconFunction;
 
@@ -12,8 +10,20 @@ class AppItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
-      child: Column(children: [IconButton(onPressed: iconFunction, icon: iconItem), Text(iconTitle)]),
+      //padding: EdgeInsets.all(10),
+      child: Column(
+        children: [
+          Expanded(
+            child: IconButton(
+              onPressed: iconFunction,
+              icon: iconItem,
+              iconSize: 70,
+            ),
+          ),
+          Text(iconTitle),
+          //SizedBox(height: 10),
+        ],
+      ),
     );
   }
 }
