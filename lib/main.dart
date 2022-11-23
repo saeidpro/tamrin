@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:new_app/apps_page.dart';
+import 'package:new_app/bottom_tabs_page.dart';
+import 'package:new_app/tabs_page.dart';
 import 'package:persian_number_utility/persian_number_utility.dart';
 
 void main() {
@@ -42,7 +44,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: mycolor,
         //accentColor: Colors.blueGrey,
       ),
-      home: AppsPage(),
+      home: TabsPage(),
+      //home: BottomTabsPage(),
     );
   }
 }

@@ -8,9 +8,7 @@ class AppsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('جعبه ابزار')),
-      body: GridView(
+    return GridView(
         //padding: EdgeInsets.all(15),
         children: APPS_LIST
             .map((appData) => AppItems(
@@ -25,7 +23,6 @@ class AppsPage extends StatelessWidget {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
         ),
-      ),
-    );
+      );
   }
 }
