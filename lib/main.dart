@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:persian_number_utility/persian_number_utility.dart';
 
 //import 'package:new_app/apps_page.dart';
 import './bottom_tabs_page.dart';

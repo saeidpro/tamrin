@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/apps_page.dart';
-import 'package:new_app/favorites_page.dart';
+
+import './apps_page.dart';
+import './favorites_page.dart';
+import './main_drawer.dart';
 
 class TabsPage extends StatefulWidget {
   const TabsPage({super.key});
@@ -15,6 +17,7 @@ class _TabsPageState extends State<TabsPage> {
     return DefaultTabController(
         length: 7,
         child: Scaffold(
+          drawer: MainDrawer(),
           body: TabBarView(children: [
             AppsPage(),
             FavoritesPage(),
