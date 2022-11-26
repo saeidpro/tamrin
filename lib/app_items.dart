@@ -6,7 +6,7 @@ import './dummy_page.dart';
 class AppItems extends StatelessWidget {
   final Image iconItem;
   final String iconTitle;
-  final VoidCallback iconFunction;
+  final String iconFunction;
 
   AppItems(this.iconItem, this.iconTitle, this.iconFunction);
 
@@ -18,20 +18,12 @@ class AppItems extends StatelessWidget {
         children: [
           Expanded(
             child: IconButton(
-              onPressed: () => Navigator.of(context).pushNamed(BottomTabsPage.routeName),
-              // () => Navigator.of(context).push(
-              //   MaterialPageRoute(
-              //     builder: (_) {
-              //       return BottomTabsPage();
-              //     },
-              //   ),
-              // ), //iconFunction,
+              onPressed: () => Navigator.of(context).pushNamed(iconFunction),
               icon: iconItem,
               iconSize: 70,
             ),
           ),
           Text(iconTitle),
-          //SizedBox(height: 10),
         ],
       ),
     );
