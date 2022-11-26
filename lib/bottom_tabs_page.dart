@@ -5,6 +5,8 @@ import 'package:new_app/favorites_page.dart';
 class BottomTabsPage extends StatefulWidget {
   const BottomTabsPage({super.key});
 
+  static const routeName = 'bottom-tabs-page';
+
   @override
   State<BottomTabsPage> createState() => _BottomTabsPageState();
 }
@@ -33,16 +35,19 @@ class _BottomTabsPageState extends State<BottomTabsPage> {
       appBar: AppBar(title: Text('جعبه ابزار'),),
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Theme.of(context).primaryColor,
         selectedItemColor: Colors.yellow,
         unselectedItemColor: Colors.white,
         currentIndex: _selectedPageIndex,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.file_open)),
-          BottomNavigationBarItem(icon: Icon(Icons.folder)),
-          BottomNavigationBarItem(icon: Icon(Icons.undo)),
-          BottomNavigationBarItem(icon: Icon(Icons.delete)),
-          BottomNavigationBarItem(icon: Icon(Icons.backup)),
+          BottomNavigationBarItem(icon: Icon(Icons.file_open),label: 'باز کردن'),
+          BottomNavigationBarItem(icon: Icon(Icons.folder),label: 'پوشه جدید'),
+          BottomNavigationBarItem(icon: Icon(Icons.undo),label: 'بازگشت'),
+          BottomNavigationBarItem(icon: Icon(Icons.delete),label: 'پاک کردن'),
+          BottomNavigationBarItem(icon: Icon(Icons.backup),label: 'نسخه پشتیبان'),
         ],
       ),
     );

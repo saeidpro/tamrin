@@ -45,6 +45,9 @@ class MyApp extends StatelessWidget {
         //accentColor: Colors.blueGrey,
       ),
       home: TabsPage(),
+      routes: {
+        BottomTabsPage.routeName: (context) => BottomTabsPage(),
+      },
       //home: BottomTabsPage(),
     );
   }

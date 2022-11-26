@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/bottom_tabs_page.dart';
+
+import './dummy_page.dart';
 
 class AppItems extends StatelessWidget {
   final Image iconItem;
@@ -15,7 +18,14 @@ class AppItems extends StatelessWidget {
         children: [
           Expanded(
             child: IconButton(
-              onPressed: iconFunction,
+              onPressed: () => Navigator.of(context).pushNamed(BottomTabsPage.routeName),
+              // () => Navigator.of(context).push(
+              //   MaterialPageRoute(
+              //     builder: (_) {
+              //       return BottomTabsPage();
+              //     },
+              //   ),
+              // ), //iconFunction,
               icon: iconItem,
               iconSize: 70,
             ),
