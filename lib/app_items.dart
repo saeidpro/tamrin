@@ -15,6 +15,7 @@ class AppItems extends StatelessWidget {
     return Container(
       //padding: EdgeInsets.all(10),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Expanded(
             child: IconButton(

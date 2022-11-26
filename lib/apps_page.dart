@@ -21,7 +21,7 @@ class AppsPage extends StatelessWidget {
           maxCrossAxisExtent: 150,
           childAspectRatio: 1,
           crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
+          //mainAxisSpacing: 1,
         ),
       );
   }
