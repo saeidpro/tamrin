@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/notes_page.dart';
 
 //import './dummy_page.dart';
 import './app_model.dart';
@@ -16,7 +17,7 @@ final APPS_LIST = [
   AppModel(Image.asset('assets/images/9.png'), 'ناظر سیستم', BottomTabsPage.routeName),
   AppModel(Image.asset('assets/images/10.png'), 'چراغ', BottomTabsPage.routeName),
   AppModel(Image.asset('assets/images/11.png'), 'برنامه زمانی', BottomTabsPage.routeName),
-  AppModel(Image.asset('assets/images/12.png'), 'دفترچه یادداشت', BottomTabsPage.routeName),
+  AppModel(Image.asset('assets/images/12.png'), 'دفترچه یادداشت', NotesPage.routeName),
   AppModel(Image.asset('assets/images/13.png'), 'رویداد نگار', BottomTabsPage.routeName),
   AppModel(Image.asset('assets/images/14.png'), 'ماشین حساب', BottomTabsPage.routeName),
   AppModel(Image.asset('assets/images/15.png'), 'مساحت و حجم', BottomTabsPage.routeName),

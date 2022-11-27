@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/apps_page.dart';
-import 'package:new_app/favorites_page.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 enum OptionsValue {
   newNote,
@@ -11,31 +11,10 @@ enum OptionsValue {
   restoringBackup,
 }
 
-class BottomTabsPage extends StatefulWidget {
-  const BottomTabsPage({super.key});
+class NotesPage extends StatelessWidget {
+  const NotesPage({super.key});
 
-  static const routeName = 'bottom-tabs-page';
-
-  @override
-  State<BottomTabsPage> createState() => _BottomTabsPageState();
-}
-
-class _BottomTabsPageState extends State<BottomTabsPage> {
-  final List<Widget> _pages = [
-    AppsPage(),
-    FavoritesPage(),
-    FavoritesPage(),
-    FavoritesPage(),
-    FavoritesPage(),
-  ];
-
-  int _selectedPageIndex = 0;
-    
-  void _selectPage (int index) {
-    setState(() {
-      _selectedPageIndex = index;
-    });
-  }
+  static const routeName = '/notes-page';
 
   newListTile(IconData icon, String title) {
     return ListTile(
@@ -60,11 +39,28 @@ class _BottomTabsPageState extends State<BottomTabsPage> {
     );
   }
 
+  newIconButton(IconData icon, String title) {
+    return TextButton.icon(
+      onPressed: () {},
+      icon: Icon(icon),
+      label: Text(title),
+      style: ButtonStyle(
+          padding: MaterialStateProperty.all(EdgeInsets.all(0)),
+          fixedSize: MaterialStateProperty.all(Size(double.infinity, 1))),
+    );
+  }
+
+  newListTileRow (IconData icon, String title) {
+    return Row(children: [
+      Icon(icon, color: Colors.white, size: 18,),
+      SizedBox(width: 10,),
+      Text(title, style: const TextStyle(color: Colors.white, fontSize: 14),),
+    ],);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedPageIndex],
       appBar: AppBar(actions: [
         IconButton(onPressed: () {}, icon: Icon(Icons.push_pin)),
         IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
@@ -113,24 +109,6 @@ class _BottomTabsPageState extends State<BottomTabsPage> {
                   ),
                 ]),
       ]),
-      //appBar: AppBar(title: Text('جعبه ابزار'),),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: _selectPage,
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Theme.of(context).primaryColor,
-        selectedItemColor: Colors.yellow,
-        unselectedItemColor: Colors.white,
-        currentIndex: _selectedPageIndex,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.file_open),label: 'باز کردن'),
-          BottomNavigationBarItem(icon: Icon(Icons.folder),label: 'پوشه جدید'),
-          BottomNavigationBarItem(icon: Icon(Icons.undo),label: 'بازگشت'),
-          BottomNavigationBarItem(icon: Icon(Icons.delete),label: 'پاک کردن'),
-          BottomNavigationBarItem(icon: Icon(Icons.backup),label: 'نسخه پشتیبان'),
-        ],
-      ),
     );
   }
 }
