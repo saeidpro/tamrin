@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:new_app/notes_list_page.dart';
 
 enum OptionsValue {
   newNote,
@@ -61,6 +60,7 @@ class NotesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: NotesListPage(),
       appBar: AppBar(actions: [
         IconButton(onPressed: () {}, icon: Icon(Icons.push_pin)),
         IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),

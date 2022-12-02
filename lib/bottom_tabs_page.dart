@@ -123,7 +123,7 @@ class _BottomTabsPageState extends State<BottomTabsPage> {
         currentIndex: _selectedPageIndex,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.file_open),label: 'باز کردن'),
           BottomNavigationBarItem(icon: Icon(Icons.folder),label: 'پوشه جدید'),
           BottomNavigationBarItem(icon: Icon(Icons.undo),label: 'بازگشت'),
