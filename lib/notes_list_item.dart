@@ -18,6 +18,10 @@ class NotesListItem extends StatelessWidget {
         onTap: () {},
         //splashColor: Colors.orange,
         highlightColor: Color(0xFFF8D8A9),
+        //focusColor: Colors.blue,
+        splashColor: Color(0xFFF8D8A9),
+        //overlayColor: Colors.green,
+        //hoverColor: Colors.green,
         child: Ink(
             height: 70,
             padding: EdgeInsets.all(3),

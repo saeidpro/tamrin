@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:new_app/favorites_page.dart';
 import 'package:new_app/notes_page.dart';
 
 //import 'package:new_app/apps_page.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
       routes: {
         BottomTabsPage.routeName: (context) => BottomTabsPage(),
         NotesPage.routeName:(context) => NotesPage(),
+        FavoritesPage.routeName:(context) => FavoritesPage(),
       },
       //home: BottomTabsPage(),
     );

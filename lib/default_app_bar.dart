@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/apps_page.dart';
-import 'package:new_app/favorites_page.dart';
-import 'package:new_app/single_note_page.dart';
 
 enum OptionsValue {
   newNote,
@@ -12,33 +9,18 @@ enum OptionsValue {
   restoringBackup,
 }
 
-class BottomTabsPage extends StatefulWidget {
-  const BottomTabsPage({super.key});
-
-  static const routeName = 'bottom-tabs-page';
+class DefaultAppBar extends StatelessWidget with PreferredSizeWidget{
 
   @override
-  State<BottomTabsPage> createState() => _BottomTabsPageState();
-}
+  final Size preferredSize;
 
-class _BottomTabsPageState extends State<BottomTabsPage> {
-  final List<Widget> _pages = [
-    AppsPage(),
-    FavoritesPage(),
-    FavoritesPage(),
-    FavoritesPage(),
-    FavoritesPage(),
-  ];
+  DefaultAppBar(): preferredSize = Size.fromHeight(50), super ();
 
-  int _selectedPageIndex = 0;
-    
-  void _selectPage (int index) {
-    setState(() {
-      _selectedPageIndex = index;
-    });
-  }
+  //const DefaultAppBar({super.key});
 
   newListTile(IconData icon, String title) {
+    
+
     return ListTile(
       visualDensity: VisualDensity(vertical: -4, horizontal: 0),
       dense: true,
@@ -61,13 +43,9 @@ class _BottomTabsPageState extends State<BottomTabsPage> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: //_pages[_selectedPageIndex],
-      SingleNotePage(),
-      appBar: AppBar(actions: [
+    return AppBar(actions: [
         IconButton(onPressed: () {}, icon: Icon(Icons.push_pin)),
         IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
         PopupMenuButton(
@@ -114,25 +92,6 @@ class _BottomTabsPageState extends State<BottomTabsPage> {
                      newListTile(Icons.settings_backup_restore, 'بازیابی پشتیبان'),
                   ),
                 ]),
-      ]),
-      //appBar: AppBar(title: Text('جعبه ابزار'),),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: _selectPage,
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Theme.of(context).primaryColor,
-        selectedItemColor: Colors.yellow,
-        unselectedItemColor: Colors.white,
-        currentIndex: _selectedPageIndex,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.file_open),label: 'باز کردن'),
-          BottomNavigationBarItem(icon: Icon(Icons.folder),label: 'پوشه جدید'),
-          BottomNavigationBarItem(icon: Icon(Icons.undo),label: 'بازگشت'),
-          BottomNavigationBarItem(icon: Icon(Icons.delete),label: 'پاک کردن'),
-          BottomNavigationBarItem(icon: Icon(Icons.backup),label: 'نسخه پشتیبان'),
-        ],
-      ),
-    );
+      ]);
   }
 }
