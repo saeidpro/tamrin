@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/apps_page.dart';
+import 'package:new_app/default_app_bar.dart';
 import 'package:new_app/favorites_page.dart';
+import 'package:new_app/notes_list_page.dart';
 import 'package:new_app/single_note_page.dart';
 
 enum OptionsValue {
@@ -66,55 +68,9 @@ class _BottomTabsPageState extends State<BottomTabsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: //_pages[_selectedPageIndex],
-      SingleNotePage(),
-      appBar: AppBar(actions: [
-        IconButton(onPressed: () {}, icon: Icon(Icons.push_pin)),
-        IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
-        PopupMenuButton(
-            color: Color.fromARGB(255, 15, 15, 15),
-            onSelected: (value) {},
-            icon: Icon(Icons.more_vert),
-            itemBuilder: (_) => [
-                  PopupMenuItem(
-                    height: 10,
-                    value: OptionsValue.newNote,
-                    child: //newListTileRow(Icons.add_rounded, 'یادداشت جدید'),
-                        //newIconButton(Icons.add_rounded, 'یادداشت جدید'),
-                        newListTile(Icons.add_rounded, 'یادداشت جدید'),                        
-                  ),
-                  PopupMenuItem(
-                    height: 10,
-                    value: OptionsValue.newFolder,
-                    child: //newListTileRow(Icons.create_new_folder, 'پوشه جدید'),
-                    //newIconButton(Icons.create_new_folder, 'پوشه جدید'),
-                        newListTile(Icons.create_new_folder, 'پوشه جدید'),
-                  ),
-                  PopupMenuItem(
-                    height: 10,
-                    value: OptionsValue.moveToFolder,
-                    child: //newListTileRow(Icons.undo, 'انتفال به پوشه'),
-                    newListTile(Icons.undo, 'انتفال به پوشه'),
-                  ),
-                  PopupMenuItem(
-                    height: 10,
-                    value: OptionsValue.delete,
-                    child: //newListTileRow(Icons.delete, 'حذف'),
-                    newListTile(Icons.delete, 'حذف'),
-                  ),
-                  PopupMenuItem(
-                    height: 20,
-                    value: OptionsValue.backup,
-                    child: //newListTileRow(Icons.backup, 'پشتیبان گیری')
-                    newListTile(Icons.backup, 'پشتیبان گیری'),
-                  ),
-                  PopupMenuItem(
-                    height: 20,
-                    value: OptionsValue.restoringBackup,
-                    child: //newListTileRow(Icons.settings_backup_restore, 'بازیابی پشتیبان'),
-                     newListTile(Icons.settings_backup_restore, 'بازیابی پشتیبان'),
-                  ),
-                ]),
-      ]),
+      //SingleNotePage(),
+      NotesListPage(),
+      appBar: DefaultAppBar(),
       //appBar: AppBar(title: Text('جعبه ابزار'),),
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,

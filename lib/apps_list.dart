@@ -18,7 +18,7 @@ final APPS_LIST = [
   AppModel(Image.asset('assets/images/9.png'), 'ناظر سیستم', FavoritesPage.routeName),
   AppModel(Image.asset('assets/images/10.png'), 'چراغ', FavoritesPage.routeName),
   AppModel(Image.asset('assets/images/11.png'), 'برنامه زمانی', FavoritesPage.routeName),
-  AppModel(Image.asset('assets/images/12.png'), 'دفترچه یادداشت', NotesPage.routeName),
+  AppModel(Image.asset('assets/images/12.png'), 'دفترچه یادداشت', BottomTabsPage.routeName),
   AppModel(Image.asset('assets/images/13.png'), 'رویداد نگار', FavoritesPage.routeName),
   AppModel(Image.asset('assets/images/14.png'), 'ماشین حساب', FavoritesPage.routeName),
   AppModel(Image.asset('assets/images/15.png'), 'مساحت و حجم', FavoritesPage.routeName),

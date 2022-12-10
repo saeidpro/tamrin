@@ -16,11 +16,8 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget{
 
   DefaultAppBar(): preferredSize = Size.fromHeight(50), super ();
 
-  //const DefaultAppBar({super.key});
-
   newListTile(IconData icon, String title) {
     
-
     return ListTile(
       visualDensity: VisualDensity(vertical: -4, horizontal: 0),
       dense: true,
