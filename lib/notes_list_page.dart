@@ -12,11 +12,17 @@ class NotesListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final notesData = Provider.of<NotesProvider>(context);
     final notes = notesData.items;
-    return ListView(
-      children:
-          notes.map((it) => NotesListItem(it.text, it.date, it.id)).toList(),
-          //NOTES_LIST.map((it) => NotesListItem(it.text, it.date, it.id)).toList(),
+
+    return ListView.builder(
+      itemBuilder: (_, i) => NotesListItem(notes[i].text, notes[i].date, notes[i].id) ,
+      itemCount: notes.length,
     );
+
+    // return ListView(
+    //   children:
+    //       notes.map((it) => NotesListItem(it.text, it.date, it.id)).toList(),
+    //       //NOTES_LIST.map((it) => NotesListItem(it.text, it.date, it.id)).toList(),
+    // );
     // ListView.builder(
     //   itemCount: NOTES_LIST.length,
     //   itemBuilder: (context, index) {
