@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:new_app/single_note_page.dart';
+//import 'package:intl/intl.dart';
 import 'package:persian_number_utility/persian_number_utility.dart';
 
 class NotesListItem extends StatelessWidget {
@@ -7,15 +8,18 @@ class NotesListItem extends StatelessWidget {
 
   final String shortText;
   final DateTime shortDate;
+  final String shortId;
 
-  NotesListItem(this.shortText, this.shortDate);
+  NotesListItem(this.shortText, this.shortDate, this.shortId);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 0, vertical: 3),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).pushNamed(SingleNotePage.routeName);
+        },
         //splashColor: Colors.orange,
         highlightColor: Color(0xFFF8D8A9),
         //focusColor: Colors.blue,

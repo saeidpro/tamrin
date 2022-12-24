@@ -36,15 +36,21 @@ class MainDrawer extends StatelessWidget {
           buildListTiles('به اشتراک گذاشتن', Icons.share),
           buildListTiles('امتیاز به برنامه', Icons.star),
           buildListTiles('به روز رسانی', Icons.update),
-          Expanded(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Text(
+          Spacer(), //The Expanded wrapping around text also works. 
+                    //But I don't know why I didn't need to use Align with Spacer.
+          Text(
                 'پشتیبانی: 02184215701'.toPersianDigit(),
                 style: TextStyle(fontSize: 18),
               ),
-            ),
-          ),
+          // Expanded(
+          //   child: Align(
+          //     alignment: Alignment.bottomCenter,
+          //     child: Text(
+          //       'پشتیبانی: 02184215701'.toPersianDigit(),
+          //       style: TextStyle(fontSize: 18),
+          //     ),
+          //   ),
+          // ),
           SizedBox(height: 15),
         ],
       ),

@@ -9,7 +9,7 @@ class NotesListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children:
-          NOTES_LIST.map((it) => NotesListItem(it.text, it.date)).toList(),
+          NOTES_LIST.map((it) => NotesListItem(it.text, it.date, it.id)).toList(),
     );
     // ListView.builder(
     //   itemCount: NOTES_LIST.length,
