@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:new_app/favorites_page.dart';
-import 'package:new_app/notes_list.dart';
-import 'package:new_app/notes_page.dart';
-import 'package:new_app/single_note_page.dart';
+import 'package:provider/provider.dart';
 
-//import 'package:new_app/apps_page.dart';
+import './notes_provider.dart';
+import './favorites_page.dart';
+import './notes_page.dart';
+import './single_note_page.dart';
 import './bottom_tabs_page.dart';
 import './tabs_page.dart';
 
@@ -34,28 +34,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('fa', ''),
-      ],
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: mycolor,
-        //accentColor: Colors.blueGrey,
+    return ChangeNotifierProvider(
+      create: (ctx) => NotesProvider(),
+      child: MaterialApp(
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('fa', ''),
+        ],
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: mycolor,
+          //accentColor: Colors.blueGrey,
+        ),
+        home: TabsPage(),
+        routes: {
+          BottomTabsPage.routeName: (context) => BottomTabsPage(),
+          NotesPage.routeName:(context) => NotesPage(),
+          FavoritesPage.routeName:(context) => FavoritesPage(),
+          SingleNotePage.routeName:(context) => SingleNotePage(),
+        },
+        //home: BottomTabsPage(),
       ),
-      home: TabsPage(),
-      routes: {
-        BottomTabsPage.routeName: (context) => BottomTabsPage(),
-        NotesPage.routeName:(context) => NotesPage(),
-        FavoritesPage.routeName:(context) => FavoritesPage(),
-        SingleNotePage.routeName:(context) => SingleNotePage(),
-      },
-      //home: BottomTabsPage(),
     );
   }
 }
