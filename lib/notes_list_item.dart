@@ -18,7 +18,7 @@ class NotesListItem extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 0, vertical: 3),
       child: InkWell(
         onTap: () {
-          Navigator.of(context).pushNamed(SingleNotePage.routeName);
+          Navigator.of(context).pushNamed(SingleNotePage.routeName, arguments: shortId);
         },
         //splashColor: Colors.orange,
         highlightColor: Color(0xFFF8D8A9),
