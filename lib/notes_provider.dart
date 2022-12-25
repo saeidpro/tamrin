@@ -19,8 +19,14 @@ class NotesProvider with ChangeNotifier {
     return [..._items];
   }
 
-  void addNote() {
-    //_items.add(value);
+  void addNote(NotesListModel note) {
+    final newNote = NotesListModel(
+      note.text,
+      note.date,
+      DateTime.now().toString(),
+    );
+    _items.add(newNote);
+    //_items.insert(0, newNote);
     notifyListeners();
   }
 }
