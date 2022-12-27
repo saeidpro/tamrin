@@ -31,6 +31,8 @@ class _SingleNotePageState extends State<SingleNotePage> {
         final notes = Provider.of<NotesProvider>(context);
         final _editedNote = notes.items.firstWhere((note) => note.id == noteId);
         previousText.text = _editedNote.text;
+      } else {
+        previousText.text = '';
       }
     }
     _isInit = false;
