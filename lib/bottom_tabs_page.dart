@@ -33,8 +33,8 @@ class _BottomTabsPageState extends State<BottomTabsPage> {
   ];
 
   int _selectedPageIndex = 0;
-    
-  void _selectPage (int index) {
+
+  void _selectPage(int index) {
     setState(() {
       _selectedPageIndex = index;
     });
@@ -63,13 +63,12 @@ class _BottomTabsPageState extends State<BottomTabsPage> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: //_pages[_selectedPageIndex],
-      //SingleNotePage(),
-      NotesListPage(),
+          //SingleNotePage(),
+          NotesListPage(),
       appBar: DefaultAppBar(),
       //appBar: AppBar(title: Text('جعبه ابزار'),),
       bottomNavigationBar: BottomNavigationBar(
@@ -82,11 +81,13 @@ class _BottomTabsPageState extends State<BottomTabsPage> {
         showSelectedLabels: false,
         showUnselectedLabels: false,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.file_open),label: 'باز کردن'),
-          BottomNavigationBarItem(icon: Icon(Icons.folder),label: 'پوشه جدید'),
-          BottomNavigationBarItem(icon: Icon(Icons.undo),label: 'بازگشت'),
-          BottomNavigationBarItem(icon: Icon(Icons.delete),label: 'پاک کردن'),
-          BottomNavigationBarItem(icon: Icon(Icons.backup),label: 'نسخه پشتیبان'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.file_open), label: 'باز کردن'),
+          BottomNavigationBarItem(icon: Icon(Icons.folder), label: 'پوشه جدید'),
+          BottomNavigationBarItem(icon: Icon(Icons.undo), label: 'بازگشت'),
+          BottomNavigationBarItem(icon: Icon(Icons.delete), label: 'پاک کردن'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.backup), label: 'نسخه پشتیبان'),
         ],
       ),
     );

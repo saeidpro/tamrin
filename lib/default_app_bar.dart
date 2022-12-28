@@ -48,14 +48,19 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
       IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
       PopupMenuButton(
           color: Color.fromARGB(255, 15, 15, 15),
-          onSelected: (value) {},
+          onSelected: (value) {
+            if (value == OptionsValue.newNote) {
+              Navigator.of(context).pushNamed(SingleNotePage.routeName);
+            }
+          },
           icon: Icon(Icons.more_vert),
           itemBuilder: (_) => [
                 PopupMenuItem(
-                  onTap: () {
-                    Navigator.of(context).pushNamed(SingleNotePage.routeName, arguments: '');
-                    print('object');
-                  },
+                  // onTap: () {
+                  //   Navigator.of(context)
+                  //       .pushNamed(SingleNotePage.routeName, arguments: '');
+                  //   print('object');
+                  // },
                   height: 10,
                   value: OptionsValue.newNote,
                   child: //newListTileRow(Icons.add_rounded, 'یادداشت جدید'),

@@ -18,7 +18,7 @@ class _SingleNotePageState extends State<SingleNotePage> {
   var _editedNote = NotesListModel('', DateTime.now(), '');
   // var _initValues = {
   //   'text': '',
-  //   'date': 
+  //   'date':
   // }
 
   TextEditingController previousText = TextEditingController();
@@ -26,11 +26,15 @@ class _SingleNotePageState extends State<SingleNotePage> {
   @override
   void didChangeDependencies() {
     if (_isInit) {
-      final noteId = ModalRoute.of(context)?.settings.arguments as String;
+      //if (ModalRoute.of(context) != null) {
+      final noteId = ModalRoute.of(context)?.settings.arguments;
+      
+
       if (noteId != null) {
         final notes = Provider.of<NotesProvider>(context);
         final _editedNote = notes.items.firstWhere((note) => note.id == noteId);
         previousText.text = _editedNote.text;
+      //}
       } else {
         previousText.text = '';
       }
