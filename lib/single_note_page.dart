@@ -28,13 +28,12 @@ class _SingleNotePageState extends State<SingleNotePage> {
     if (_isInit) {
       //if (ModalRoute.of(context) != null) {
       final noteId = ModalRoute.of(context)?.settings.arguments;
-      
 
       if (noteId != null) {
         final notes = Provider.of<NotesProvider>(context);
         final _editedNote = notes.items.firstWhere((note) => note.id == noteId);
         previousText.text = _editedNote.text;
-      //}
+        //}
       } else {
         previousText.text = '';
       }
@@ -48,24 +47,44 @@ class _SingleNotePageState extends State<SingleNotePage> {
     //TextEditingController previousText = TextEditingController();
     //previousText.text = widget.loadedNote.text;
     //previousText = _editedNote.text;
+    bool shallPop = false;
 
-    return Scaffold(
-      appBar: DefaultAppBar(),
-      body: SingleChildScrollView(
-        child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(0xFFFDF6DD), Color(0xFFFEF1C6)],
+    Future<bool> addingNewNote() async {
+      NotesListModel newNote = NotesListModel(
+        previousText.text,
+        DateTime.now(),
+        DateTime.now().toString(),
+      );
+      Provider.of<NotesProvider>(context).addNote(newNote);
+      shallPop = true;
+      //Navigator.of(context).pop();
+      return shallPop;
+    }
+
+    return WillPopScope(
+      onWillPop: () async {
+        addingNewNote();
+        Navigator.of(context).pop();
+        return true;
+      },
+      child: Scaffold(
+        appBar: DefaultAppBar(),
+        body: SingleChildScrollView(
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Color(0xFFFDF6DD), Color(0xFFFEF1C6)],
+              ),
             ),
-          ),
-          child: TextField(
-            minLines: 39,
-            maxLines: 100,
-            controller: previousText,
-            decoration: const InputDecoration(border: InputBorder.none),
-            //style: TextStyle(backgroundColor: ),
+            child: TextField(
+              minLines: 39,
+              maxLines: 100,
+              controller: previousText,
+              decoration: const InputDecoration(border: InputBorder.none),
+              //style: TextStyle(backgroundColor: ),
+            ),
           ),
         ),
       ),
