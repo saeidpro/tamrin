@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_app/single_note_page.dart';
+
+import './single_note_page.dart';
 
 enum OptionsValue {
   newNote,
@@ -44,6 +45,7 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(actions: [
+      //IconButton(onPressed: addingNewNote(), icon: Icon(Icons.save)),
       IconButton(onPressed: () {}, icon: Icon(Icons.push_pin)),
       IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
       PopupMenuButton(

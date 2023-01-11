@@ -47,44 +47,66 @@ class _SingleNotePageState extends State<SingleNotePage> {
     //TextEditingController previousText = TextEditingController();
     //previousText.text = widget.loadedNote.text;
     //previousText = _editedNote.text;
-    bool shallPop = false;
+    //bool shallPop = false;
+    bool FirstChange = true;
+    //Future<bool> addingNewNote() async {
+    void addingNewNote(String text) {
+      if (notes != null){
 
-    Future<bool> addingNewNote() async {
-      NotesListModel newNote = NotesListModel(
-        previousText.text,
-        DateTime.now(),
-        DateTime.now().toString(),
-      );
-      Provider.of<NotesProvider>(context).addNote(newNote);
-      shallPop = true;
-      //Navigator.of(context).pop();
-      return shallPop;
+        NotesListModel editedNote = NotesListModel(
+          text,
+          _editedNote.date,
+          _editedNote.id,
+        );
+        Provider.of<NotesProvider>(context, listen: false).editNote(editedNote);
+      }
+      if (FirstChange) {
+        NotesListModel newNote = NotesListModel(
+          text,
+          //previousText.text,
+          DateTime.now(),
+          DateTime.now().toString(),
+        );
+        Provider.of<NotesProvider>(context, listen: false).addNote(newNote);
+        FirstChange = false;
+      }
     }
+    //shallPop = true;
+    //Navigator.of(context).pop();
+    //return shallPop;
+    //}
 
-    return WillPopScope(
-      onWillPop: () async {
-        addingNewNote();
-        Navigator.of(context).pop();
-        return true;
-      },
-      child: Scaffold(
-        appBar: DefaultAppBar(),
-        body: SingleChildScrollView(
-          child: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xFFFDF6DD), Color(0xFFFEF1C6)],
-              ),
+    // WillPopScope(
+    //   onWillPop: () async {
+    //     addingNewNote();
+    //     Navigator.of(context).pop();
+    //     return true;
+    //   },
+    return Scaffold(
+      appBar: DefaultAppBar(),
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xFFFDF6DD), Color(0xFFFEF1C6)],
             ),
-            child: TextField(
-              minLines: 39,
-              maxLines: 100,
-              controller: previousText,
-              decoration: const InputDecoration(border: InputBorder.none),
-              //style: TextStyle(backgroundColor: ),
-            ),
+          ),
+          child: TextField(
+            // onEditingComplete: () {
+            //   addingNewNote();
+            //   print('object');
+            // },
+            onChanged: (value) {
+              addingNewNote(value);
+              print('object');
+            },
+            minLines: 39,
+            maxLines: 100,
+            controller: previousText,
+            decoration: const InputDecoration(border: InputBorder.none),
+            //style: TextStyle(backgroundColor: ),
           ),
         ),
       ),

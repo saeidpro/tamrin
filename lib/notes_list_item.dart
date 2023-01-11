@@ -40,7 +40,7 @@ class NotesListItem extends StatelessWidget {
                 offset: Offset(0, 3),
               ),
             ],
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [Color(0xFFFDF6DD), Color(0xFFFEF1C6)],

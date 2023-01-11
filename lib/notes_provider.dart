@@ -29,4 +29,10 @@ class NotesProvider with ChangeNotifier {
     //_items.insert(0, newNote);
     notifyListeners();
   }
+
+  void editNote(NotesListModel note) {
+    NotesListModel oldNote = _items.firstWhere((nt) => note.id == nt.id);
+    oldNote.text = note.text;
+    notifyListeners();    
+  }
 }
